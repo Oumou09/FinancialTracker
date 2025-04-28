@@ -1,6 +1,9 @@
 package com.pluralsight;
 
-import java.time.LocalDate;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -52,6 +55,21 @@ public class FinancialTracker {
     }
 
     public static void loadTransactions(String fileName) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("transactions.csv"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\\|");
+                String date = parts[0];
+                String time = parts[1];
+                String vendor = parts[2];
+                String description = parts[3];
+                double amount = Double.parseDouble(parts[4]);
+                transactions.add(new Transaction(date, time, vendor, description, amount));
+            }
+        } catch (Exception e) {
+            System.err.println("Error reading file: " + fileName);
+        }
         // This method should load transactions from a file with the given file name.
         // If the file does not exist, it should be created.
         // The transactions should be stored in the `transactions` ArrayList.
@@ -63,7 +81,10 @@ public class FinancialTracker {
     }
 
     private static void addDeposit(Scanner scanner) {
-        // This method should prompt the user to enter the date, time, description, vendor, and amount of a deposit.
+       // This method should prompt the user to enter the date, time, description, vendor, and amount of a deposit.
+        for ( Transaction transactions : transactions){
+            System.out.println(transactions);
+        }
         // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
         // The amount should be a positive number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
@@ -119,8 +140,12 @@ public class FinancialTracker {
     }
 
     private static void displayDeposits() {
-        // This method should display a table of all deposits in the `transactions` ArrayList.
-        // The table should have columns for date, time, description, vendor, and amount.
+       try { BufferedReader br = new BufferedReader(new FileReader("transactions.csv"));
+
+
+           // This method should display a table of all deposits in the `transactions` ArrayList.
+       } catch (Exception e) {
+       } // The table should have columns for date, time, description, vendor, and amount.
     }
 
     private static void displayPayments() {
