@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -60,8 +61,8 @@ public class FinancialTracker {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("\\|");
-                String date = parts[0];
-                String time = parts[1];
+                LocalDate date = LocalDate.parse(parts[0]);
+                LocalTime time =LocalTime.parse(parts[1]);
                 String vendor = parts[2];
                 String description = parts[3];
                 double amount = Double.parseDouble(parts[4]);
@@ -81,10 +82,40 @@ public class FinancialTracker {
     }
 
     private static void addDeposit(Scanner scanner) {
-       // This method should prompt the user to enter the date, time, description, vendor, and amount of a deposit.
-        for ( Transaction transactions : transactions){
-            System.out.println(transactions);
+        try {
+            System.out.print("Enter Date (yyyy-MM-dd): ");
+            LocalDate localDate = LocalDate.parse(scanner.nextLine());
+
+            System.out.print("Enter the Time (HH:mm:ss): ");
+            LocalTime localTime = LocalTime.parse(scanner.nextLine());
+
+            System.out.print("Enter description: ");
+            String description = scanner.nextLine();
+
+            System.out.print("Enter vendor: ");
+            String vendor = scanner.nextLine();
+
+            System.out.print("Enter amount: $");
+            double amount = Double.parseDouble(scanner.nextLine());
+
+            if (amount <= 0) {
+                System.out.println("Amount must be a positive number.");
+                return;
+            }
+            Transaction deposit = new Transaction(localDate, localTime, description, vendor, amount);
+            transactions.add(deposit);
+
+            System.out.println("Deposit added successfully!");
+
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date and time format. Please use yyyy-MM-dd HH:mm:ss.");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid amount. Please enter a valid number.");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+// This method should prompt the user to enter the date, time, description, vendor, and amount of a deposit.
         // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
         // The amount should be a positive number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
@@ -93,7 +124,21 @@ public class FinancialTracker {
 
     private static void addPayment(Scanner scanner) {
         // This method should prompt the user to enter the date, time, description, vendor, and amount of a payment.
-        // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
+        System.out.print("Enter Date (yyyy-MM-dd): ");
+        LocalDate localDate = LocalDate.parse(scanner.nextLine());
+// The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
+        System.out.print("Enter the Time (HH:mm:ss): ");
+        LocalTime localTime = LocalTime.parse(scanner.nextLine());
+
+        System.out.print("Enter description: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Enter vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.print("Enter amount: $");
+        double amount = Double.parseDouble(scanner.nextLine());
+        
         // The amount received should be a positive number then transformed to a negative number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new payment should be added to the `transactions` ArrayList.
@@ -133,18 +178,21 @@ public class FinancialTracker {
             }
         }
     }
-
     private static void displayLedger() {
         // This method should display a table of all transactions in the `transactions` ArrayList.
+        for ( Transaction transactions : transactions){
+            System.out.println(transactions);
+        }
         // The table should have columns for date, time, description, vendor, and amount.
     }
 
     private static void displayDeposits() {
-       try { BufferedReader br = new BufferedReader(new FileReader("transactions.csv"));
+        // This method should display a table of all deposits in the `transactions` ArrayList.
+        try { BufferedReader br = new BufferedReader(new FileReader("transactions.csv"));
 
 
-           // This method should display a table of all deposits in the `transactions` ArrayList.
        } catch (Exception e) {
+            System.out.println("Invalid Entry");
        } // The table should have columns for date, time, description, vendor, and amount.
     }
 
@@ -209,4 +257,5 @@ public class FinancialTracker {
         // Transactions with a matching vendor name are printed to the console.
         // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
     }
+
 }
