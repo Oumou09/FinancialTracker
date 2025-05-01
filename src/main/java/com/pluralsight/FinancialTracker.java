@@ -263,8 +263,9 @@ public class FinancialTracker {
 
                 // This method filters the transactions by date and prints a report to the console.
                 for (Transaction transaction : transactions) {
-                    LocalDate date = transaction.getDate();
-                    if (date.isEqual(startDate) ==)
+                    if (transaction.getDate().isBefore(startDate)){
+
+                    }
 
                 }
                 // It takes two parameters: startDate and endDate, which represent the range of dates to filter by.
@@ -275,10 +276,9 @@ public class FinancialTracker {
 
             private static void filterTransactionsByVendor (String vendor){
                 // This method filters the transactions by vendor and prints a report to the console.
-                (Transaction transaction: transactions){
-                    Transaction transaction;
-                    String vendor = transaction.getVendor();
-
+                for(Transaction transaction: transactions){
+                    if (transaction.getVendor().equalsIgnoreCase(vendor)) {
+                        System.out.println(transactions);
                 }
                 // It takes one parameter: vendor, which represents the name of the vendor to filter by.
                 // The method loops through the transactions list and checks each transaction's vendor name against the specified vendor name.
