@@ -53,9 +53,10 @@ public class FinancialTracker {
         scanner.close();
     }
 
-        public static void loadTransactions (String fileName){
+        public static void loadTransactions (String fileName) {
+            // error: file is not read => please check
             try {
-                BufferedReader br = new BufferedReader(new FileReader(fileName));
+                BufferedReader br = new BufferedReader(new FileReader(FILE_NAME));
                 String line;
                 while ((line = br.readLine()) != null) {
                     String[] parts = line.split("\\|");
@@ -65,13 +66,12 @@ public class FinancialTracker {
                     String description = parts[3];
                     double amount = Double.parseDouble(parts[4]);
                     transactions.add(new Transaction(date, time, vendor, description, amount));
-
-                    br.close();
-
                 }
-            } catch (Exception e) {
+                br.close();
+            }catch(Exception e) {
                 System.err.println("Error reading file: " + fileName);
             }
+
             // This method should load transactions from a file with the given file name.
             // If the file does not exist, it should be created.
             // The transactions should be stored in the `transactions` ArrayList.
@@ -179,12 +179,13 @@ public class FinancialTracker {
             }
         }
         private static void displayLedger () {
+        //When I run this method it only shows the first entry and I don't know why
             System.out.println(" DATE    |     TIME        |          DESCRIPTION    |     VENDOR              | AMOUNT                ");
             System.out.println("---------------------------------------------------------------------------------------------");
             // This method should display a table of all transactions in the `transactions` ArrayList.
             for (Transaction transaction : transactions) {
-
                 System.out.println(transaction);
+                System.out.println("%-12s | %-10s | %-30s | %-20s | $%10.2f \n");
             }
             // The table should have columns for date, time, description, vendor, and amount.
         }
@@ -194,10 +195,10 @@ public class FinancialTracker {
             System.out.println(" DATE    |      TIME   |          DESCRIPTION    |   VENDOR              | AMOUNT                ");
             System.out.println("---------------------------------------------------------------------------------------------");
           for (Transaction transaction : transactions) {
-              if (){
-
+              if (transaction.getAmount() > 0){
+                  System.out.println(transaction);
               }
-              System.out.println(transaction);
+
           }
              // The table should have columns for date, time, description, vendor, and amount.
         }
@@ -207,10 +208,10 @@ public class FinancialTracker {
             System.out.println(" DATE    |       TIME       |          DESCRIPTION    |   VENDOR            | AMOUNT               ");
             System.out.println("---------------------------------------------------------------------------------------------");
             for (Transaction transaction : transactions){
-                if (){
-
-                }
+              if (transaction.getAmount() < 0){
                 System.out.println(transaction);
+               }
+
             }
             // The table should have columns for date, time, description, vendor, and amount.
         }
