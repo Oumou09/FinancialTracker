@@ -185,7 +185,7 @@ public class FinancialTracker {
             // This method should display a table of all transactions in the `transactions` ArrayList.
             for (Transaction transaction : transactions) {
                 System.out.println(transaction);
-                System.out.println("%-12s | %-10s | %-30s | %-20s | $%10.2f \n");
+                System.out.println();
             }
             // The table should have columns for date, time, description, vendor, and amount.
         }
@@ -216,7 +216,7 @@ public class FinancialTracker {
             // The table should have columns for date, time, description, vendor, and amount.
         }
 
-        private static void reportsMenu (Scanner scanner){
+        private static void reportsMenu (Scanner scanner) {
             boolean running = true;
             while (running) {
                 System.out.println("Reports");
@@ -234,6 +234,7 @@ public class FinancialTracker {
                 switch (input) {
                     case "1":
                         // Generate a report for all transactions within the current month,
+
 
                         // including the date, time, description, vendor, and amount for each transaction.
                     case "2":
@@ -258,24 +259,33 @@ public class FinancialTracker {
             }
         }
 
+            private static void filterTransactionsByDate (LocalDate startDate, LocalDate endDate){
 
-        private static void filterTransactionsByDate (LocalDate startDate, LocalDate endDate){
+                // This method filters the transactions by date and prints a report to the console.
+                for (Transaction transaction : transactions) {
+                    LocalDate date = transaction.getDate();
+                    if (date.isEqual(startDate) ==)
 
-            // This method filters the transactions by date and prints a report to the console.
-            // It takes two parameters: startDate and endDate, which represent the range of dates to filter by.
-            // The method loops through the transactions list and checks each transaction's date against the date range.
-            // Transactions that fall within the date range are printed to the console.
-            // If no transactions fall within the date range, the method prints a message indicating that there are no results.
+                }
+                // It takes two parameters: startDate and endDate, which represent the range of dates to filter by.
+                // The method loops through the transactions list and checks each transaction's date against the date range.
+                // Transactions that fall within the date range are printed to the console.
+                // If no transactions fall within the date range, the method prints a message indicating that there are no results.
+            }
+
+            private static void filterTransactionsByVendor (String vendor){
+                // This method filters the transactions by vendor and prints a report to the console.
+                (Transaction transaction: transactions){
+                    Transaction transaction;
+                    String vendor = transaction.getVendor();
+
+                }
+                // It takes one parameter: vendor, which represents the name of the vendor to filter by.
+                // The method loops through the transactions list and checks each transaction's vendor name against the specified vendor name.
+                // Transactions with a matching vendor name are printed to the console.
+                // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
+            }
+
         }
-
-        private static void filterTransactionsByVendor (String vendor){
-            // This method filters the transactions by vendor and prints a report to the console.
-            // It takes one parameter: vendor, which represents the name of the vendor to filter by.
-            // The method loops through the transactions list and checks each transaction's vendor name against the specified vendor name.
-            // Transactions with a matching vendor name are printed to the console.
-            // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
-        }
-
-
     }
 
