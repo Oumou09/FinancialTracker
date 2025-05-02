@@ -62,8 +62,8 @@ public class FinancialTracker {
                 String[] parts = line.split("\\|");
                 LocalDate date = LocalDate.parse(parts[0], DATE_FORMATTER);
                 LocalTime time = LocalTime.parse(parts[1], DateTimeFormatter.ofPattern(TIME_FORMAT));
-                String vendor = parts[2];
-                String description = parts[3];
+                String description = parts[2];
+                String vendor = parts[3];
                 double amount = Double.parseDouble(parts[4]);
                 transactions.add(new Transaction(date, time, vendor, description, amount));
             }
@@ -86,7 +86,6 @@ public class FinancialTracker {
 
         System.out.print("Enter the date (yyyy-MM-dd): ");
         LocalDate date = LocalDate.parse(scanner.nextLine(), DATE_FORMATTER);
-        scanner.nextLine();
         System.out.print("Enter the time (HH:mm:ss): ");
         LocalTime time = LocalTime.parse(scanner.nextLine(), TIME_FORMATTER);
         System.out.print("Enter product description: ");
@@ -99,7 +98,9 @@ public class FinancialTracker {
 
         if (amount <= 0) {
             System.out.println("Invalid amount. Please enter a positive number.");
+            return;
         }
+
         Transaction newTransaction = new Transaction(date, time, vendor, description, amount);
         transactions.add(newTransaction);
         try {
@@ -120,7 +121,6 @@ public class FinancialTracker {
         // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
         System.out.print("Enter the date (yyyy-MM-dd): ");
         LocalDate date = LocalDate.parse(scanner.nextLine(), DATE_FORMATTER);
-        scanner.nextLine();
         System.out.print("Enter the time (HH:mm:ss): ");
         LocalTime time = LocalTime.parse(scanner.nextLine(), TIME_FORMATTER);
         System.out.print("Enter product description: ");

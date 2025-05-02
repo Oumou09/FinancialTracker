@@ -1,15 +1,24 @@
-# Project Title
-
+ Financial Tracker
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+is a Java-based console application that helps users record and manage their personal financial transactions. The application 
+allows users to track deposits and payments, view a complete ledger, and generate financial reports based on date or vendor. 
+The main goal of this tool is to simplify expense tracking for individuals who want to understand and manage 
+their financial habits without using complicated software.
+
+Intended users are individuals who want a simple, lightweight financial tool to record and review transactions over time. The application reads and writes to a CSV file, making it easy to persist data between sessions.
 
 ![Class Diagram](path/to/your/class_diagram.png)
 
 ## User Stories
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
-
+- As a user, I want to be able to input my data, so that the application can process it accordingly.
+- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a user, I want to add deposits and payments so I can track where my money goes.
+- As a user, I want to view all my transactions so I can monitor my financial activity.
+- As a user, I want to filter transactions by date or vendor so I can analyze my spending habits.
+- As a user, I want to save my transactions between sessions so I don’t lose any data.
 - As a user, I want to be able to input my data, so that the application can process it accordingly.
 - As a user, I want to receive immediate feedback, so I can understand what to do next.
 
@@ -47,8 +56,12 @@ Include screenshots or GIFs that show your application in action. Use tools like
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+Add GUI interface using JavaFX or Swing for better user experience.
+Support category-based filtering and totals (e.g., groceries, rent, etc.).
+Include a monthly budget tracker and alert system.
+Enhance data validation (e.g., checking for empty inputs).
+Add sorting options (e.g., by date or amount).
+Export reports to a separate file.
 
 ## Resources
 
