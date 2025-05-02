@@ -181,7 +181,7 @@ public class FinancialTracker {
 
     private static void displayLedger() {
         //When I run this method it only shows the first entry and I don't know why
-        System.out.println(" DATE    |     TIME        |          DESCRIPTION    |     VENDOR              | AMOUNT                ");
+        System.out.println(" DATE    |     TIME        |          DESCRIPTION    |     VENDOR              | AMOUNT               ");
         System.out.println("---------------------------------------------------------------------------------------------");
         // This method should display a table of all transactions in the `transactions` ArrayList.
         for (Transaction transaction : transactions) {

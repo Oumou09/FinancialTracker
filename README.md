@@ -51,12 +51,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 ![9smgq2.gif](../../../../Downloads/9smgq2.gif)
 
-
 ## Future Work
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-Add GUI interface using JavaFX or Swing for better user experience.
+Swing for better user experience.
 Support category-based filtering and totals (e.g., groceries, rent, etc.).
 Include a monthly budget tracker and alert system.
 Enhance data validation (e.g., checking for empty inputs).
