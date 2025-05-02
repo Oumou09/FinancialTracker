@@ -34,8 +34,8 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- Java: Correto 17.
+- Teacher's skeleton code.
 
 ## Demo
 
@@ -54,13 +54,10 @@ Outline potential future enhancements or functionalities you might consider addi
 
 List resources such as tutorials, articles, or documentation that helped you during the project.
 
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
-
-## Team Members
-
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+-stack overflow(https://stackoverflow.com/questions/4216745/java-string-to-date-conversion/4216767#4216767)
+-Previous class examples(https://github.com/RayMaroun/yearup-spring-section-10-2025/tree/master)
+- ChatGPT in explain guides (https://chatgpt.com/c/680fc43b-d79c-8012-883c-71ce4ba47e53)
+- As well as google
 
 ## Thanks
 
