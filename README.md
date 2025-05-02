@@ -8,7 +8,6 @@ their financial habits without using complicated software.
 
 Intended users are individuals who want a simple, lightweight financial tool to record and review transactions over time. The application reads and writes to a CSV file, making it easy to persist data between sessions.
 
-![Class Diagram](path/to/your/class_diagram.png)
 
 ## User Stories
 
